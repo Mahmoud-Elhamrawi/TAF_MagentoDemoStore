@@ -4,7 +4,7 @@
     <parameter name="browser" value="chrome"></parameter>
     <test name="regressionTest" >
         <classes>
-            <class name="TestCases./>
+            <class name="TestCases.TC01_RegisterTest"/>
 
         </classes>
     </test>

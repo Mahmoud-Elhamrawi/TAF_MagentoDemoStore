@@ -32,7 +32,7 @@ public class TestBase {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
 
-        driver.get("");
+        driver.get("http://live.techpanda.org/index.php/");
 
 
     }
