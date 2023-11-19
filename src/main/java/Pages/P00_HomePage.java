@@ -13,6 +13,8 @@ public class P00_HomePage extends pageBase{
 
     private final By myAccountLink =By.xpath("//div[@id=\"header-account\" ]  //ul  //li[1] //a");
     private final By registerLink = By.xpath("//div[@id=\"header-account\" ]  //ul  //li[5] //a");
+
+    private final By loginLink = By.xpath("//div[@id=\"header-account\" ]  //ul  //li[6] //a");
     private final By headerAccount = By.id("header-account");
     public void clickOnAccount()
     {
@@ -37,4 +39,7 @@ public class P00_HomePage extends pageBase{
     }
 
 
+    public void clickONLoginLink (){
+        clickEle(driver.findElement(loginLink));
+    }
 }
