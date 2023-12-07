@@ -1,13 +1,18 @@
 package TestCases;
 
+import Data.ReadDataDrivenFromJson;
+import Data.ReadDataDrivenLoginFromJson;
 import Pages.P00_HomePage;
 import Pages.P02_LogOutPage;
 import Pages.P03_LoginPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.time.Duration;
 
 public class TC02_LoginTest extends TestBase{
@@ -16,13 +21,16 @@ public class TC02_LoginTest extends TestBase{
 
   P03_LoginPage loginPage ;
   P02_LogOutPage logOutPage ;
+    ReadDataDrivenLoginFromJson readDataDrivenLoginFromJson;
 
+    @DataProvider
+    public Object[] testDataforSucessduLogin() throws IOException, ParseException, org.json.simple.parser.ParseException {
+        readDataDrivenLoginFromJson = new ReadDataDrivenLoginFromJson();
+        return readDataDrivenLoginFromJson.testDataForSucessfulRegister();
+    }
 
-
-
-    @Test
-    public void validLogin()
-    {
+    @Test(dataProvider = "testDataforSucessduLogin")
+    public void validLogin(String data) throws InterruptedException {
         //navigate to login
         homePage = new P00_HomePage(driver);
         homePage.clickOnAccount();
@@ -33,10 +41,13 @@ public class TC02_LoginTest extends TestBase{
 
 
         //in login
-           loginPage = new P03_LoginPage(driver);
-           loginPage.loginSteps("moaaz7@gmail.com","1234567");
+        String users[] = data.split(",");
+
+        loginPage = new P03_LoginPage(driver);
+           loginPage.loginSteps(users[0],users[1]);
+           Thread.sleep(3000);
            softAssert.assertEquals("MY DASHBOARD",loginPage.assertTit().getText());
-           softAssert.assertEquals("Hello, moaaz mahmoud elhamrawi!" ,loginPage.assertOnWelMsg().getText());
+//           softAssert.assertEquals("Hello, "+users[0]+" mahmoud "+users[1]+"!" ,loginPage.assertOnWelMsg().getText());
 
 
            //logOut

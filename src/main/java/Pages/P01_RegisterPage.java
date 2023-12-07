@@ -43,13 +43,13 @@ public class P01_RegisterPage  extends pageBase{
         clickEle(driver.findElement(registerBtn));
     }
 
-    public void registerStepsMandatoryFeaild(String FN , String LN , String email , String pass , String Cpass)
+    public void registerStepsMandatoryFeaild(String FN , String LN , String email , String pass )
     {
         enterTxt(driver.findElement(fNameInp),FN );
         enterTxt(driver.findElement(lNameInp),LN );
         enterTxt(driver.findElement(emailAddInp),email );
         enterTxt(driver.findElement(passInp),pass );
-        enterTxt(driver.findElement(confirmPassInp),Cpass );
+        enterTxt(driver.findElement(confirmPassInp),pass );
 
         clickEle(driver.findElement(registerBtn));
     }
