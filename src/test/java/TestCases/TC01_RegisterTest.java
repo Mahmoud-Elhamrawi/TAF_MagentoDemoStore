@@ -80,7 +80,7 @@ public class TC01_RegisterTest extends TestBase{
         //in register page
         softAssert.assertEquals("CREATE AN ACCOUNT",registerPage.assertTitle().getText());
 
-        registerPage.registerStepsMandatoryFeaild("moaaz","elhamrawi","moaaz8@gmail.com","1234567","1234567");
+        registerPage.registerStepsMandatoryFeaild("moaaz","elhamrawi","moaaz16@gmail.com","1234567","1234567");
 
         softAssert.assertTrue(registerPage.assertMsg().getText().contains("Thank you for registering"));
         softAssert.assertEquals("Hello, moaaz  elhamrawi!" , registerPage.assertWel().getText());
