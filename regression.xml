@@ -4,8 +4,12 @@
     <parameter name="browser" value="chrome"></parameter>
     <test name="regressionTest" >
         <classes>
-            <class name="TestCases.TC10_checkoutTest"></class>
             <class name="TestCases.TC08_addToWishList"></class>
+            <class name="TestCases.TC03_ForgetPassTest"></class>
+            <class name="TestCases.TC08_addToWishList"></class>
+            <class name="TestCases.TC06_CartTest"></class>
+            <class name="TestCases.TC07_addReview"></class>
+            <class name="TestCases.TC09_addToCompare"></class>
 
         </classes>
     </test>

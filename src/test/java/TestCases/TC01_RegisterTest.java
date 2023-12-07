@@ -100,7 +100,6 @@ public class TC01_RegisterTest extends TestBase{
         softAssert.assertTrue(registerPage.assertMsg().getText().contains("Thank you for registering"));
         softAssert.assertEquals(registerPage.assertWel().getText() ,"Hello, "+users[0]+" "+users[1]+"!");
 
-        Thread.sleep(2000);
         //logOut
         logOutPage = new P02_LogOutPage(driver);
         logOutPage.clickMyAccount();
